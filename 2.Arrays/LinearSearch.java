@@ -1,3 +1,6 @@
+//Time Complexity - O(n)
+//Space Complexity -O(1)
+
 public class LinearSearch {
     public static int searchElement(int[] numbers,int key){
         for(int i=0;i<numbers.length;i++){
