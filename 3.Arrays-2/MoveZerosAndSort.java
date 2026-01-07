@@ -1,5 +1,6 @@
 
-
+//Time Complexity-O(nlogn)
+//Space Complexity-O(1)
 import java.util.Arrays;
 
 public class MoveZerosAndSort {
