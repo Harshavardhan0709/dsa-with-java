@@ -2,14 +2,34 @@ public class SearchInSortedMatrix {
 
     // Time Complexity:O(n*m)
     // Space Complexity:O(1)
-    public static boolean searchBrute(int matrix[][], int target) {
+    // public static boolean searchBrute(int matrix[][], int target) {
+    // int n = matrix.length;
+    // int m = matrix[0].length;
+    // for (int i = 0; i < n; i++) {
+    // for (int j = 0; j < m; j++) {
+    // if (matrix[i][j] == target) {
+    // System.out.println("found at (" + i + "," + j + ")");
+    // return true;
+    // }
+    // }
+    // }
+    // System.out.println("Not found");
+    // return false;
+    // }
+    public static boolean rowWiseBinarySearch(int matrix[][], int target) {
         int n = matrix.length;
         int m = matrix[0].length;
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (matrix[i][j] == target) {
-                    System.out.println("found at (" + i + "," + j + ")");
+            int low = 0, high = m - 1;
+            while (low <= high) {
+                int mid = (low + high) / 2;
+                if (matrix[i][mid] == target) {
+                    System.out.println("found at (" + i + "," + mid + ")");
                     return true;
+                } else if (matrix[i][mid] > target) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
                 }
             }
         }
@@ -23,6 +43,9 @@ public class SearchInSortedMatrix {
                 { 27, 29, 37, 48 },
                 { 32, 33, 39, 50 }
         };
-        searchBrute(arr, 3);
+        // searchBrute(arr, 33);
+        // searchBrute(arr, 3);
+        // rowWiseBinarySearch(arr, 33);
+        // rowWiseBinarySearch(arr, 3);
     }
 }
