@@ -13,6 +13,7 @@ public class SearchInSortedMatrix {
                 }
             }
         }
+        System.out.println("Not found");
         return false;
     }
 
@@ -22,6 +23,6 @@ public class SearchInSortedMatrix {
                 { 27, 29, 37, 48 },
                 { 32, 33, 39, 50 }
         };
-        searchBrute(arr, 33);
+        searchBrute(arr, 3);
     }
 }
