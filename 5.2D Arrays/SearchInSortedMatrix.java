@@ -43,25 +43,44 @@ public class SearchInSortedMatrix {
     // Time Complexity:O(mlogn)
     // Space Complexity:O(1)
     // public static boolean colWiseBinarySearch(int matrix[][], int target) {
-    //     int n = matrix.length;
-    //     int m = matrix[0].length;
-    //     for (int j = 0; j < m; j++) {
-    //         int low = 0, high = n - 1;
-    //         while (low <= high) {
-    //             int mid = (low + high) / 2;
-    //             if (matrix[j][mid] == target) {
-    //                 System.out.println("found at (" + j + "," + mid + ")");
-    //                 return true;
-    //             } else if (matrix[j][mid] > target) {
-    //                 high = mid - 1;
-    //             } else {
-    //                 low = mid + 1;
-    //             }
-    //         }
-    //     }
-    //     System.out.println("Not found");
-    //     return false;
+    // int n = matrix.length;
+    // int m = matrix[0].length;
+    // for (int j = 0; j < m; j++) {
+    // int low = 0, high = n - 1;
+    // while (low <= high) {
+    // int mid = (low + high) / 2;
+    // if (matrix[j][mid] == target) {
+    // System.out.println("found at (" + j + "," + mid + ")");
+    // return true;
+    // } else if (matrix[j][mid] > target) {
+    // high = mid - 1;
+    // } else {
+    // low = mid + 1;
     // }
+    // }
+    // }
+    // System.out.println("Not found");
+    // return false;
+    // }
+    // Time Complexity:O(n+m)
+    // Space Complexity:O(1)
+    public static boolean optimalSearch(int matrix[][], int target) {
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int row = 0, col = m - 1;
+        while (row < n && col >= 0) {
+            if (matrix[row][col] == target) {
+                System.out.println("found at (" + row + "," + col + ")");
+                return true;
+            } else if (matrix[row][col] > target) {
+                col--;
+            } else {
+                row++;
+            }
+        }
+        System.out.println("Not found");
+        return false;
+    }
 
     public static void main(String[] args) {
         int arr[][] = { { 10, 20, 30, 40 },
@@ -75,5 +94,7 @@ public class SearchInSortedMatrix {
         // rowWiseBinarySearch(arr, 3);
         // colWiseBinarySearch(arr, 33);
         // colWiseBinarySearch(arr, 3);
+        optimalSearch(arr, 33);
+        optimalSearch(arr, 3);
     }
 }
